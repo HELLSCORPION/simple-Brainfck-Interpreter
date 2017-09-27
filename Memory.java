@@ -31,9 +31,6 @@ public class Memory {
      * @param v value to check
      */
     private void checkValue(byte v){
-        if(v>127){
-            throw new IllegalStateException("Memory value of 128b exceeded");
-        }
         if(v<0){
             throw new IllegalStateException("Memory value cannot be negative");
         }
