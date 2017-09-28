@@ -3,8 +3,7 @@
  */
 public class Main{
 
-    static Memory mem;
-    static Executor exec;
+    private static Executor exec;
 
 
     /**
@@ -12,8 +11,7 @@ public class Main{
      * @param args
      */
     public static void main(String args[]){
-        String code = "+++[->+<]+";
-
+        String code = "";
 
         for(int i = 0; i < args.length; i++){
             code += args[i];
@@ -25,8 +23,7 @@ public class Main{
      * start method of the controller class
      */
     public static void start(String code){
-        mem = new Memory();
-        exec = new Executor(code, mem);
+        exec = new Executor(code);
         exec.start();
     }
 }
