@@ -5,8 +5,8 @@ import java.util.List;
  * A Class that represents a memory unit working according to the given rules of Brainfuck
  */
 public class Memory {
-    List<Byte> mem;
-    int ptr;
+    private List<Byte> mem;
+    private int ptr;
 
     /**
      * constructor of the memory unit
@@ -31,7 +31,7 @@ public class Memory {
      * @param v value to check
      */
     private void checkValue(byte v){
-        if(v<0){
+        if(v < 0){
             throw new IllegalStateException("Memory value cannot be negative");
         }
     }
@@ -48,7 +48,7 @@ public class Memory {
      * moves the memory pointer one index to the left
      */
     public void left(){
-        if(ptr-1<0){
+        if(ptr-1 < 0){
             throw new IllegalStateException("Memory out of bounds");
         }
         ptr--;
@@ -57,23 +57,21 @@ public class Memory {
     /**
      * increments the memory byte at the memory pointer's position
      */
-    public void increase(){
+    public void increment(){
         byte tmp;
-        tmp = mem.get(ptr);
+        tmp = getValue();
         tmp++;
-        checkValue(tmp);
-        mem.set(ptr, tmp);
+        setValue(tmp);
     }
 
     /**
      * decrements the memory byte at the memory pointer's position
      */
-    public void decrease(){
+    public void decrement(){
         byte tmp;
-        tmp = mem.get(ptr);
+        tmp = getValue();
         tmp--;
-        checkValue(tmp);
-        mem.set(ptr, tmp);
+        setValue(tmp);
     }
 
     /**
